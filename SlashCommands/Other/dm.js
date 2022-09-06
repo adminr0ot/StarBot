@@ -5,13 +5,13 @@ module.exports = {
         name: 'user',
         description: 'Provide user to send dms',
         type: 'USER',
-        required: true,
+        require: true,
     },
     {
         name: 'message',
         description: 'Enter message you wanna send to user',
         type: 'STRING',
-        required: true,
+        require: true,
     }],
 
     run: async(client, interaction, guild, args) => {
