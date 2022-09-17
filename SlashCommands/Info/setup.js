@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'setup',
-    description: 'Wenn willst du brennen sehen?',
+    description: 'Zu wessen Streaming Setup möchtest du Infos?',
     options: [{
         name: 'streamer',
         description: 'Provide the Streamer you want the setup for',
