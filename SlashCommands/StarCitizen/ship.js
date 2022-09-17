@@ -62,6 +62,9 @@ module.exports = {
                                 url: "https://robertsspaceindustries.com/pledge/ships?manufacturer_id" + ship.manufacturer.id,
                             },
                             description: ship.description,
+                            thumbnail: {
+                                url: 'https://robertsspaceindustries.com' + ship.manufacturer.media[0].images.heap_thumb,
+                            },
                             "fields": [
                                 {
                                     "name": "Länge:",
