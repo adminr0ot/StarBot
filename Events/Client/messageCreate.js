@@ -6,7 +6,7 @@ const { MessageEmbed } = require('discord.js');
 
 client.on('messageCreate', async message => {
     if(message.author.bot) return;
-    //if(!message.content.startsWith(PREFIX)) return; //Changed to Custom Prefix from DB
+    if(!message.content.startsWith(PREFIX)) return; //Changed to Custom Prefix from DB
     if(!message.guild) return;
     let prefix = await db.fetch(`prefix_${message.guild.id}`);
     if(prefix == null) {
