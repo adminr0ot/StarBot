@@ -23,10 +23,11 @@
   "homepage": "https://github.com/adminr0ot/discordbot#readme",
   "dependencies": {
     "ascii-table": "^0.0.9",
+    "discord-html-transcripts": "^2.6.1",
     "discord.js": "^13.11.0",
     "dotenv": "^16.0.0",
     "moment": "^2.29.3",
-    "mongoose": "^6.5.2",
+    "mongoose": "^6.6.1",
     "ms": "^2.1.3",
     "quick.db": "^7.1.3",
     "request": "^2.88.2"

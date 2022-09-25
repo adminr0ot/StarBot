@@ -8,5 +8,9 @@
     "DEFAULTUSERGROUPNAME": "",
     "MUTEUSERGROUPNAME": "",
     "OWNERID": "",
-    "MONGOURL": ""
+    "MONGOURL": "",
+    "EVERYONEID": "",
+    "TICKETSPACEID": "",
+    "OPENTICKETCHANNELID": "",
+    "TICKETTRANSCRIPTID": ""
 }

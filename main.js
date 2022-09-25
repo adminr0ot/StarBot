@@ -14,21 +14,24 @@
 //
 //Invite Link:https://discord.com/api/oauth2/authorize?client_id=966256161571618897&permissions=1644133088471&scope=bot%20applications.commands
 
-const { Discord, Client, Collection, MessageEmbed, Intents } = require('discord.js');
+const { Discord, Client, Collection, MessageEmbed, Intents, GatewayIntentBits, Partials } = require('discord.js');
 const client = new Client(
     { 
         intents: 32767,
         partials: [
             "MESSAGE",
             "CHANNEL",
-            "REACTION"
+            "REACTION",
+            "User",
+            "GuildMember",
+            "ThreadMember"
         ]
     });
 
     //Conncet to database
-    //(async () => {
-    //    await require("./Database/connect")();
-    //})();
+    (async () => {
+        await require("./Database/connect")();
+    })();
 
 //import
 require('dotenv').config();

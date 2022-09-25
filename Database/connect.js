@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 const client = require('../main.js');
+client.config = require("../config.json")
 
 async function connect() {
     mongoose.connect(client.config.MONGOURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
     });
 
     mongoose.connection.once("open", () => {
