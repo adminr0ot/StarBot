@@ -10,7 +10,7 @@ I originally wrote this discord bot for my own server. After updating to discord
 ## Requirements
 
 - nodejs
-- mongodb/quick.db
+- mongodb
 - forever can by helpfull to run the server
 
 ## Installation
@@ -61,25 +61,52 @@ stuff
 - Thanks
 - thxleaderboard
 
-### Game Server Status
-
-- Minecraft
-
 ### Ticketsystem
 
-:warning: The command is currently under rework and do not work.
+A ticket system that allows for the creation of bug reports, player reports, and ideas/other. 
+
+The results can finally be saved as a transcript. 
+
+The channels and categories are defined via Config.json.
+
+The command for initial message creation/setup is `/ticket`
+
+:warning: This feature is currently not yet multi-Guild compatible
 
 ### Event Management like https://apollo.fyi/
 
-:warning: The command is currently under rework and do not work.
+:warning: currently under development
 
 ## Slash Commands
 
-:warning: The Slash commands are currently under rework and do not work correctly
+### Info
+
+- `/ping` - Test the reaction of the bot
+- `/setup` - Get Informations about the Streaming Setup
+
+### Social
+
+- `/twitch` - Get the twitch links for selected streamers
+
+### Star Citizen
+
+- `/cigtime` - Get the current local times at the CIG locations
+- `/motd` - Get the latest information about the patch status 
+- `/requirements` - Get the latest information on the necessary hardware requirements for Star Citizen
+- `/ship` - Perform a query on the ships in CIG's ship matrix.
+- `/whitenesses` - Whitenesses are always a good start
+
+### Other
+
+- `/burn` - burn someone with a funny saying
+- `/dm` - send a direct message
+- `/magicball` - Let the Magicball answer your questions
+- `/multiply` - Mutliplies numbers
 
 ## Social System
 
-:warning: This part is currently under rework and do not work.
+:warning: currently under development
+
 ## Authors
 
 - [@adminr0ot](https://github.com/adminr0ot)
