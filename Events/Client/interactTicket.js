@@ -9,7 +9,7 @@ const DB = require("../../structures/Schemas/Ticket");
 client.on("interactionCreate", async(interaction) => {
     if(!interaction.isButton()) return;
     const { guild, customId, channel, member } = interaction;
-    if(!member.permissions.has("ADMINISTRATOR")) return interaction.reply({content: "You cannot use these buttons.", ephemeral: true,})
+    if(!member.permissions.has("Administrator")) return interaction.reply({content: "You cannot use these buttons.", ephemeral: true,})
         if(!["close", "lock", "unlock"].includes(customId)) return;
 
     const Embed = new EmbedBuilder().setColor("BLUE");

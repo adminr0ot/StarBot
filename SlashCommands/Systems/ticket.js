@@ -4,7 +4,7 @@ const { OPENTICKETCHANNELID } = require("../../config.json")
 module.exports = {
     name: "ticket",
     description: "Setup your ticketing massage.",
-    permissions: "ADMINISTRATOR",
+    permissions: "Administrator",
     /**
      * 
      * @param {CommandInteraction} interaction 
