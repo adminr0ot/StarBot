@@ -5,13 +5,12 @@ module.exports = {
     options: [{
         name: 'name',
         description: 'Provide the Shipname you want informations for',
-        type: 'STRING',
+        type: 3,
         require: true,
     }],
     run: async(client, interaction, guild, args) => {
         let search = args[0].toUpperCase()
         search = search.replace(/[ ",-]+/g, "")
-        console.log("Outside: "+search)
         //build request
         var request = require('request');
         var headers = {
@@ -43,7 +42,6 @@ module.exports = {
                     //if (search.match(re)) {
 
                     if (comp == search) {
-                        console.log(ship.id);
 
                         //Fix CIG's crap
                         let shipFix
@@ -117,6 +115,11 @@ module.exports = {
                                     "inline": true
                                 },
                                 {
+                                    "name": "Letzte Änderung",
+                                    "value": ship.time_modified,
+                                    "inline": true
+                                },
+                                {
                                     "name": "Link",
                                     "value": 'https://robertsspaceindustries.com'+ ship.url,
                                     "inline": false
@@ -125,7 +128,6 @@ module.exports = {
                             image: {
                                 url: ship.media[0].source_url,
                             },
-                            timestamp: 'Letzte Änderung: ' + ship.time_modified.unfiltered,
                             footer: {
                                 text: 'StarBot by CAN',
                                 icon_url: 'https://events.crashacademy.net/wp-content/uploads/2021/05/CAN_LOGO_Wide_NoBox-200x81.png',
