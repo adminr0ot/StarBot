@@ -63,14 +63,14 @@ client.on("interactionCreate", async(interaction) => {
                 await DB.updateOne({ChannelID: channel.id}, {Closed: true });
 
                 const MEMBER = guild.members.cache.get(docs.MemberID);
-                const Message = await guild.channels.cache.get(TICKETTRANSCRIPTID).send({
-                    embeds: [Embed.setAuthor(
-                        MEMBER.user.tag, 
-                        MEMBER.user.displayAvatarURL({dynamic: true}))
-                        .setTitle(`Transcript Type: ${docs.Type}\nID: ${docs.TicketID}`),
-                    ],
-                    files: [attachmend],
-                });
+                const scriptEmbed = {
+                    author: {
+                        name: MEMBER.user.tag,
+                        icon_url: MEMBER.user.displayAvatarURL({dynamic: true}),
+                    },
+                    title: `Transcript Type: ${docs.Type}\nID: ${docs.TicketID}`,
+                };
+                const Message = await guild.channels.cache.get(TICKETTRANSCRIPTID).send({embeds: [scriptEmbed], files: [attachmend]});
                 interaction.reply({
                     embeds: [Embed.setDescription(`The transcript is now saved [TRANSCRIPT](${Message.url})`
                     ),
