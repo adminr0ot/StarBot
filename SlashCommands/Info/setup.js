@@ -5,7 +5,7 @@ module.exports = {
     options: [{
         name: 'streamer',
         description: 'Provide the Streamer you want the setup for',
-        type: 'STRING',
+        type: 3,
         require: true,
         choices: [
             { 

@@ -5,7 +5,7 @@ module.exports = {
     options: [{
         name: 'user',
         description: 'Provide user you want to burn',
-        type: 'USER',
+        type: 6,
         require: true,
     }],
     run: async(client, interaction, guild, args, message) => {

@@ -5,13 +5,13 @@ module.exports = {
     options: [{
         name: 'value1',
         description: 'Enter first value for multiplication',
-        type: 'NUMBER',
+        type: 10,
         require: true,
     },
     {
         name: 'value2',
         description: 'Enter second value for multiplication',
-        type: 'NUMBER',
+        type: 10,
         require: true,
     }],
     run: async(client, interaction, guild, args) => {

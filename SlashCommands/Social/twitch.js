@@ -5,7 +5,7 @@ module.exports = {
     options: [{
         name: 'channel',
         description: 'Provide the channel you want the link for',
-        type: 'STRING',
+        type: 3,
         require: true,
         choices: [
             { 

@@ -1,11 +1,11 @@
 const { MessageEmbed } = require("discord.js")
 module.exports = {
     name : "ping",
-    description : "chekling ping of bot",
+    description : "checking ping of bot",
     options: [{
             name: 'message',
             description: 'send message',
-            type: 'STRING',
+            type: 3,
             require: true,
     }],
     run : async (client, interaction, args) => {

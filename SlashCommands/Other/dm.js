@@ -4,13 +4,13 @@ module.exports = {
     options: [{
         name: 'user',
         description: 'Provide user to send dms',
-        type: 'USER',
+        type: 6,
         require: true,
     },
     {
         name: 'message',
         description: 'Enter message you wanna send to user',
-        type: 'STRING',
+        type: 3,
         require: true,
     }],
 

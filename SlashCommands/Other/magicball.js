@@ -5,7 +5,7 @@ module.exports = {
     options: [{
         name: 'question',
         description: 'Ask me a Question!',
-        type: 'STRING',
+        type: 3,
         require: true,
     }],
     run: async(client, interaction, guild, args) => {
