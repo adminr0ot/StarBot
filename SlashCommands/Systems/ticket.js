@@ -23,17 +23,17 @@ module.exports = {
         const Buttons = new ActionRowBuilder();
         Buttons.addComponents(
             new ButtonBuilder()
-                .setCustomId("player")
-                .setLabel("Player Report")
+                .setCustomId("feedback")
+                .setLabel("Feedback")
                 .setStyle(ButtonStyle.Primary)
-                .setEmoji("🕹"),
+                .setEmoji("📢"),
             new ButtonBuilder()
                 .setCustomId("bug")
                 .setLabel("Bug Report")
                 .setStyle(ButtonStyle.Secondary)
                 .setEmoji("🐞"),
             new ButtonBuilder()
-                .setCustomId("other")
+                .setCustomId("idea")
                 .setLabel("Ideas/Other Reports")
                 .setStyle(ButtonStyle.Success)
                 .setEmoji("💡"),

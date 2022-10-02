@@ -16,9 +16,8 @@ const { TICKETSPACEID, EVERYONEID } = require("../../config.json");
 client.on("interactionCreate", async(interaction) => {
     if(!interaction.isButton()) return;
     const { guild, member, customId } = interaction;
-    if(!["player", "bug", "other"].includes(customId)) return;
+    if(!["feedback", "bug", "idea"].includes(customId)) return;
     const ID = Math.floor(Math.random() * 90000) + 10000;
-    console.log("Works");
     await guild.channels.create({
         name: member.user.username + "-" + customId + "-" + ID, 
         type:  ChannelType.GuildText,
