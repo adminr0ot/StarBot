@@ -11,7 +11,7 @@ const {
     ChannelType
 } = require("discord.js");
 const DB = require("../../structures/Schemas/Ticket");
-const { TICKETSPACEID, EVERYONEID } = require("../../config.json");
+const { TICKETSPACEID, EVERYONEID, MODERATORID } = require("../../config.json");
 
 client.on("interactionCreate", async(interaction) => {
     if(!interaction.isButton()) return;
@@ -26,6 +26,10 @@ client.on("interactionCreate", async(interaction) => {
             {
                 id: member.id,
                 allow: ["SendMessages", "ViewChannel", "ReadMessageHistory"],
+            },
+            {
+                id: MODERATORID,
+                allow: ["SendMessages", "ViewChannel", "ReadMessageHistory"]
             },
             {
                 id: EVERYONEID,

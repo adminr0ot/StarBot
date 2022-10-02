@@ -3,7 +3,7 @@ const client = require('../../main.js');
 
 const { ButtonInteraction, EmbedBuilder } = require("discord.js");
 const { createTranscript } = require("discord-html-transcripts");
-const { TICKETTRANSCRIPTID } = require("../../config.json");
+const { TICKETTRANSCRIPTID, MODERATORID } = require("../../config.json");
 const DB = require("../../structures/Schemas/Ticket");
 
 client.on("interactionCreate", async(interaction) => {
