@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 module.exports = {
     name: 'reqirements',
     description: 'Erfahre, welche offiziellen Systemanforderungen Star Citizen hat.',

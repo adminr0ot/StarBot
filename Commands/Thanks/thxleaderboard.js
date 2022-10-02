@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const db = require('quick.db')
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
 
         //This will check weather there is data in thanks leaderboard otherwise the client will send this
         if(!thanks.length) {
-            let noEmbed =  new MessageEmbed()
+            let noEmbed =  new EmbedBuilder()
             .setTitle(message.member.displayName, message.author.displayAvatarURL())
             .setColor('GREEN')
             .setFooter("Nothing to see here yet")
@@ -26,7 +26,7 @@ module.exports = {
             finalLb += `**${thanks.indexOf(thanks[i]) + 1}. ${client.users.cache.get(thanks[i].ID.split('_')[1]) ? client.users.cache.get(thanks[i].ID.split('_')[1]).tag : "Unknown User#0000"}** - \`${thanks[i].data} Thanks\`\n`;
         };
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle(`Thanks Leaderboard of ${message.guild.name}`)
         .setColor("GREEN")
         .setDescription(finalLb)

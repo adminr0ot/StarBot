@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const client = require('../../main.js')
 const moment = require('moment');
 
@@ -28,7 +28,7 @@ module.exports = {
         if (member.roles.cache.size < 1) rolesname = "No Roles"
         if (!member.roles.cache.size || member.roles.cache.size - 1 < 1) roles = `\`None\``;
         
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL({ dynamic: true })) //TODO: switch to new version of embeds
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
             .setFooter(`ID: ${member.id}`)

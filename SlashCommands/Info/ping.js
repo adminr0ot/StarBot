@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder, ChatInputCommandInteraction, SlashCommandBuilder } = require("discord.js")
 module.exports = {
     name : "ping",
     description : "checking ping of bot",

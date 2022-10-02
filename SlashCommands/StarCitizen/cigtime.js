@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 module.exports = {
     name: 'cigtime',
     description: 'get the current time for the different CIG locations',

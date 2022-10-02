@@ -1,4 +1,4 @@
-const { MessageEmbed, CommandIntercation, MessageActionRow, MessageButton} = require("discord.js");
+const { EmbedBuilder, CommandIntercation, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 const { OPENTICKETCHANNELID } = require("../../config.json")
 
 module.exports = {
@@ -20,22 +20,22 @@ module.exports = {
             description: 'Open a ticket to discuss any of the issues listed on the button.'
         };
 
-        const Buttons = new MessageActionRow();
+        const Buttons = new ActionRowBuilder();
         Buttons.addComponents(
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("player")
                 .setLabel("Player Report")
-                .setStyle("PRIMARY")
+                .setStyle(ButtonStyle.Primary)
                 .setEmoji("🕹"),
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("bug")
                 .setLabel("Bug Report")
-                .setStyle("SECONDARY")
+                .setStyle(ButtonStyle.Secondary)
                 .setEmoji("🐞"),
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("other")
                 .setLabel("Ideas/Other Reports")
-                .setStyle("SUCCESS")
+                .setStyle(ButtonStyle.Success)
                 .setEmoji("💡"),
         );
 

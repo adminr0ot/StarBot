@@ -3,10 +3,12 @@ const client = require('../../main.js');
 
 const { 
     ButtonInteraction, 
-    MessageEmbed, 
-    MessageActionRow, 
-    MessageButton, 
-    Message 
+    EmbedBuilder, 
+    ActionRowBuilder, 
+    ButtonBuilder, 
+    Message,
+    ButtonStyle,
+    ChannelType
 } = require("discord.js");
 const DB = require("../../structures/Schemas/Ticket");
 const { TICKETSPACEID, EVERYONEID } = require("../../config.json");
@@ -16,17 +18,19 @@ client.on("interactionCreate", async(interaction) => {
     const { guild, member, customId } = interaction;
     if(!["player", "bug", "other"].includes(customId)) return;
     const ID = Math.floor(Math.random() * 90000) + 10000;
-    await guild.channels.create(`${member.user.username + "-" + customId + "-" + ID}`, {
-        type: "GUILD_TEXT",
+    console.log("Works");
+    await guild.channels.create({
+        name: member.user.username + "-" + customId + "-" + ID, 
+        type:  ChannelType.GuildText,
         parent: TICKETSPACEID,
         permissionOverwrites: [
             {
                 id: member.id,
-                allow: ["SEND_MESSAGES", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY"],
+                allow: ["SendMessages", "ViewChannel", "ReadMessageHistory"],
             },
             {
                 id: EVERYONEID,
-                deny: ["SEND_MESSAGES", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY"]
+                deny: ["SendMessages", "ViewChannel", "ReadMessageHistory"]
             }
         ],
     }).then(async (channel) => {
@@ -51,22 +55,22 @@ client.on("interactionCreate", async(interaction) => {
             }
         }
 
-        const Buttons = new MessageActionRow();
+        const Buttons = new ActionRowBuilder();
         Buttons.addComponents(
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("close")
                 .setLabel("Save and Close Ticket")
-                .setStyle("PRIMARY")
+                .setStyle(ButtonStyle.Primary)
                 .setEmoji("💾"),
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("lock")
                 .setLabel("Lock")
-                .setStyle("SECONDARY")
+                .setStyle(ButtonStyle.Secondary)
                 .setEmoji("🔒"),
-            new MessageButton()
+            new ButtonBuilder()
                 .setCustomId("unlock")
                 .setLabel("Unlock")
-                .setStyle("SUCCESS")
+                .setStyle(ButtonStyle.Success)
                 .setEmoji("🔓"),
         );
         channel.send({

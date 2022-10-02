@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const db = require('quick.db')
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
         //You can add more.....
 
         //Embeds
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setAuthor(user.username || user.user.username)
         .setThumbnail(user.displayAvatarURL() || user.user.displayAvatarURL())
         .addField(`User Level`, `\`${thanks}\`` || `\`New\``)

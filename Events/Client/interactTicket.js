@@ -1,7 +1,7 @@
 //import client vom main.js
 const client = require('../../main.js');
 
-const { ButtonInteraction, MessageEmbed } = require("discord.js");
+const { ButtonInteraction, EmbedBuilder } = require("discord.js");
 const { createTranscript } = require("discord-html-transcripts");
 const { TICKETTRANSCRIPTID } = require("../../config.json");
 const DB = require("../../structures/Schemas/Ticket");
@@ -12,7 +12,7 @@ client.on("interactionCreate", async(interaction) => {
     if(!member.permissions.has("ADMINISTRATOR")) return interaction.reply({content: "You cannot use these buttons.", ephemeral: true,})
         if(!["close", "lock", "unlock"].includes(customId)) return;
 
-    const Embed = new MessageEmbed().setColor("BLUE");
+    const Embed = new EmbedBuilder().setColor("BLUE");
 
     DB.findOne({ ChannelID: channel.id }, async (err, docs) => {
         if(err) throw err;
@@ -32,7 +32,7 @@ client.on("interactionCreate", async(interaction) => {
                 await DB.updateOne({ ChannelID: channel.id }, { Locked: true });
                 Embed.setDescription("🔒 | This ticket is now locked for review.");
                 channel.permissionOverwrites.edit(docs.MemberID, {
-                    SEND_MESSAGES: false,
+                    SendMessages: false,
                 });
                 interaction.reply({ embeds: [Embed] });
                 break;
@@ -45,7 +45,7 @@ client.on("interactionCreate", async(interaction) => {
                 await DB.updateOne({ ChannelID: channel.id }, { Locked: false });
                 Embed.setDescription("🔓 | This ticket is now unlocked.");
                 channel.permissionOverwrites.edit(docs.MemberID, {
-                    SEND_MESSAGES: true,
+                    SendMessages: true,
                 });
                 interaction.reply({ embeds: [Embed] });
                 break;

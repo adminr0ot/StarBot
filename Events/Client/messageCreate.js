@@ -1,12 +1,12 @@
 //import client vom main.js
 const client = require('../../main.js');
 const { PREFIX } = require('../../config.json');
-const db = require('quick.db'); //TODO: maybe switch to mongoDB
-const { MessageEmbed } = require('discord.js');
+//const db = require('quick.db'); //TODO: maybe switch to mongoDB
+const { EmbedBuilder } = require('discord.js');
 
 client.on('messageCreate', async message => {
     if(message.author.bot) return;
-    if(!message.content.startsWith(PREFIX)) return; //Changed to Custom Prefix from DB
+    if(!message.content.startsWith(PREFIX)) return;
     if(!message.guild) return;
     let prefix = await db.fetch(`prefix_${message.guild.id}`);
     if(prefix == null) {
@@ -16,7 +16,7 @@ client.on('messageCreate', async message => {
     };
     //Mention
     if(message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}`) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Need help?')
             .setDescription(`My prefix in this server is ${prefix}, for more commands type \`${prefix}help\``);
             message.channel.send({ embeds: [embed]});

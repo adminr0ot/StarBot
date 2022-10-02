@@ -1,11 +1,11 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const { readdirSync } = require('fs')
 
 module.exports = {
     name: 'help',
     aliases: ['h'],
-    userPerms: ['SEND_MESSAGES'],
-    clientPerms: ['SEND_MESSAGES', 'EMBED_LINKS'],
+    userPerms: ['SendMessages'],
+    clientPerms: ['SendMessages', 'EmbedLinks'],
     description: "Shows all available bot commands.",
     run: async(client, message, args, prefix) => {
         if(!args[0]) {
@@ -31,7 +31,7 @@ module.exports = {
             categories.push(data);
             })
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle("Commands")
             .addFields(categories)
             .setDescription(`Use \`${prefix}help\` followed by a command name to get more additional information on a command. for example: \`${prefix}help ping\``)
@@ -42,13 +42,13 @@ module.exports = {
             const command = client.commands.get(args[0].toLowerCase()) || client.commands.find((c) => c.aliases && c.aliases.includes(args[0].toLowerCase()));
 
             if(!command) {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                 .setTitle('Not Found')
                 .setDescription(`Command not found, Use \`${prefix}help\` for all commands available`)
                 .setColor(message.guild.me.displayHexColor);
                 return message.channel.send({ embeds: [embed]})
             }
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
             .setTitle("Command Details")
             .addField("COMMAND:",
             command.name ? `\`${command.name}\`` : "No name for this command"

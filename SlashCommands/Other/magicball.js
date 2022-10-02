@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 module.exports = {
     name: '8ball',
     description: 'Der 8ball weissagt dir die Antworten zu all deinen Fragen.',

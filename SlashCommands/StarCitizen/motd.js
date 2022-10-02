@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 module.exports = {
     name: 'motd',
     description: 'Erhalte die Star Citizen Message of the Day?',
