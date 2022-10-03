@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js")
 module.exports = {
     name: 'ship',
-    description: 'Zu wessen Streaming Setup möchtest du Infos?',
+    description: 'Zu wessen Schiff möchtest du mehr erfahren?',
     options: [{
         name: 'name',
         description: 'Provide the Shipname you want informations for',
