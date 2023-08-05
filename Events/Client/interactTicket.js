@@ -12,7 +12,7 @@ client.on("interactionCreate", async(interaction) => {
     if(!["close", "lock", "unlock"].includes(customId)) return;
     if(!member.permissions.has("Administrator")) return interaction.reply({content: "You cannot use these buttons.", ephemeral: true});
 
-    const Embed = new EmbedBuilder().setColor("BLUE");
+    const Embed = new EmbedBuilder().setColor("Blue");
 
     DB.findOne({ ChannelID: channel.id }, async (err, docs) => {
         if(err) throw err;
